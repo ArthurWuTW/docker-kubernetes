@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get install \
+sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -31,5 +31,5 @@ sudo apt install -y kubectl
 
 sudo apt-get install -y kubernetes-cni
 
-
-
+# user: username
+sudo usermod -a -G docker user
