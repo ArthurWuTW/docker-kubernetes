@@ -3,6 +3,10 @@ vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 # boot=yes
 /etc/init.d/network restart
 yum update
 
+# network setting
+yum install net-tools git vim
+yum install openssh-server
+
 # install docker
 yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
