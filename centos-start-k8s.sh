@@ -36,3 +36,5 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 # Check kube command, localhost connection refuesed error disappear
 kubectl get pods
 
+# check all kube-systems
+kubectl get pods -n kube-system
