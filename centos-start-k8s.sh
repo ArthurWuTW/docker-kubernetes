@@ -17,6 +17,9 @@ service firewalld stop
 rm -f /etc/containerd/config.toml
 service containerd restart
 
+# pull kubeadm images
+kubeadm config images pull
+
 
 # init kubeadm
 kubeadm init --apiserver-advertise-address=172.20.10.6 --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.26.0 --service-cidr=10.96.0.0/12 --pod-network-cidr=10.244.0.0/16
