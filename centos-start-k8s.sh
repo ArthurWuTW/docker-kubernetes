@@ -1,4 +1,9 @@
-#install docker
+# enable network for CentOS in Virtual Machine
+vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 # boot=yes
+/etc/init.d/network restart
+yum update
+
+# install docker
 yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 yum install -y docker-ce docker-ce-cli containerd.io
