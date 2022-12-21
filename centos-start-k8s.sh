@@ -19,6 +19,11 @@ systemctl restart docker
 systemctl restart kubelet
 # need to wait for about 10 mins, you will see kubelet start, before that you always see kubelet not starting by command 'service kubelet status'
 
+# install kubernetes
+touch /etc/yum.repos.d/kubernetes.repo
+vi /etc/yum.repos.d/kubernetes.repo # paste from file
+
+
 # stop firewalld
 service firewalld stop
 
