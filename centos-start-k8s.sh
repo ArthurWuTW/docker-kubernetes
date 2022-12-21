@@ -1,5 +1,5 @@
 # enable network for CentOS in Virtual Machine
-vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 # boot=yes
+vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 # onboot=yes
 /etc/init.d/network restart
 yum update
 
