@@ -22,7 +22,7 @@ systemctl restart kubelet
 # install kubernetes
 touch /etc/yum.repos.d/kubernetes.repo
 vi /etc/yum.repos.d/kubernetes.repo # paste from file
-
+yum install -y kubelet kubeadm kubectl
 
 # stop firewalld
 service firewalld stop
