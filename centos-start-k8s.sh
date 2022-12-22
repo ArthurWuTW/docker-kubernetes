@@ -45,6 +45,8 @@ service kubelet start
 # export KUBECONFIG
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
+echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' >> ~/.bashrc 
+
 # Check kube command, localhost connection refuesed error disappear
 kubectl get pods
 
