@@ -18,8 +18,7 @@ vi /etc/yum.repos.d/kubernetes.repo # paste from file
 yum install -y kubelet kubeadm kubectl
 
 # kubelet will be dead if not doing this
-swapoff -a
-sed -i '/ swap / s/^/#/' /etc/fstab
+swapoff -a && sed -i '/ swap / s/^/#/' /etc/fstab
 systemctl daemon-reload
 systemctl restart docker
 
