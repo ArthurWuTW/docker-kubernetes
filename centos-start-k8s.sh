@@ -1,11 +1,8 @@
 # enable network for CentOS in Virtual Machine
-vi /etc/sysconfig/network-scripts/ifcfg-enp0s3 # onboot=yes
-/etc/init.d/network restart
-yum update
+sed -i "s/ONBOOT=no/ONBOOT=yes/" /etc/sysconfig/network-scripts/ifcfg-enp0s3 && /etc/init.d/network restart
 
 # network setting
-yum install net-tools git vim
-yum install openssh-server
+yum update -y && yum install -y net-tools git vim openssh-server
 
 # install docker
 yum install -y yum-utils device-mapper-persistent-data lvm2
