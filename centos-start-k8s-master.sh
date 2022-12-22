@@ -52,3 +52,23 @@ kubectl get pods
 
 # check all kube-systems
 kubectl get pods -n kube-system
+
+
+# after slave joined 
+# check kubectl get nodes -> NotReady
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+# [root@localhost ~]# kubectl get pods -n kube-system
+# NAME                                            READY   STATUS    RESTARTS      AGE
+# coredns-5bbd96d687-nf4hd                        1/1     Running   0             58m
+# coredns-5bbd96d687-zk85w                        1/1     Running   0             58m
+# etcd-localhost.localdomain                      1/1     Running   0             58m
+# kube-apiserver-localhost.localdomain            1/1     Running   0             58m
+# kube-controller-manager-localhost.localdomain   1/1     Running   6 (12m ago)   58m
+# kube-proxy-6njt9                                1/1     Running   0             11m
+# kube-proxy-n5pkf                                1/1     Running   0             58m
+# kube-scheduler-localhost.localdomain            1/1     Running   6 (12m ago)   58m
+# [root@localhost ~]# kubectl get nodes
+# NAME                    STATUS   ROLES           AGE   VERSION
+# k8s-slave1              Ready    <none>          11m   v1.26.0
+# localhost.localdomain   Ready    control-plane   58m   v1.26.0
