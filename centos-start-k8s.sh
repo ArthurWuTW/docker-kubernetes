@@ -25,7 +25,9 @@ swapoff -a
 sed -i '/ swap / s/^/#/' /etc/fstab
 systemctl daemon-reload
 systemctl restart docker
-systemctl restart kubelet
+
+# No need to start kubelet before kubeadm
+#systemctl restart kubelet
 # need to wait for about 10 mins, you will see kubelet start, before that you always see kubelet not starting by command 'service kubelet status'
 # new update: it auto-restart: running -> dead() -> running
 # service run command: /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf --config=/var/lib/kubelet/config.yaml 
@@ -41,6 +43,8 @@ kubeadm config images pull
 # init kubeadm
 kubeadm init --apiserver-advertise-address=172.20.10.6 --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.26.0 --service-cidr=10.96.0.0/12 --pod-network-cidr=10.244.0.0/16
 
+# start kubelet service after kubeadm
+service kubelet start
 
 # export KUBECONFIG
 export KUBECONFIG=/etc/kubernetes/admin.conf
