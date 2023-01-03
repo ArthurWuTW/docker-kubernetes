@@ -4,6 +4,9 @@ sed -i "s/ONBOOT=no/ONBOOT=yes/" /etc/sysconfig/network-scripts/ifcfg-enp0s3 && 
 # network setting
 yum update -y && yum install -y net-tools git vim openssh-server
 
+# set hostname
+hostnamectl set-hostname k8smaster
+
 # install docker
 yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
