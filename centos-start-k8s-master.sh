@@ -75,3 +75,7 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 # NAME                    STATUS   ROLES           AGE   VERSION
 # k8s-slave1              Ready    <none>          11m   v1.26.0
 # localhost.localdomain   Ready    control-plane   58m   v1.26.0
+
+
+# Token will expire for 24h?
+kubeadm token create --print-join-command
